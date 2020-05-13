@@ -1,0 +1,18 @@
+---
+# OS upgrade, additional packages, /etc/hosts
+
+- name: OS upgrade
+  apt:
+          upgrade: dist
+          update_cache: yes
+
+- name: additional packages
+  apt:
+          pkg:
+                  - tree
+                  - sshpass
+
+- name: Copy /etc/hosts file
+  copy:
+          src: hosts
+          dest: /etc/hosts

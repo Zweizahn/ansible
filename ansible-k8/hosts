@@ -1,0 +1,11 @@
+[k8all:children]
+k8master
+k8nodes
+
+[k8master]
+k8-master
+
+[k8nodes]
+k8-node1
+k8-node2
+k8-node3
