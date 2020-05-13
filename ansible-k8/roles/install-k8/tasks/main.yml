@@ -23,3 +23,17 @@
   apt_key:
           url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
           state: present
+
+- name: add K8 repository
+  apt_repository:
+          repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+          state: present
+
+- name: install K8 packages
+  apt:
+          name:
+                  - kubeadm 
+                  - kubelet
+                  - kubectl
+                  - kubernetes-cni
+          state: present
