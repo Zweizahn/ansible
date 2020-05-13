@@ -1,0 +1,21 @@
+---
+# Setup K8 master
+# wget https://docs.projectcalico.org/manifests/calico.yaml
+#
+- name: create k8 cluster specifying poid network matching calico.yaml
+  become: yes
+  shell: 
+        'kubeadm init --pod-network-cidr=10.0.0.0/16'
+
+- name: Copy k8 config file
+  become: yes
+  copy:
+          remote_src: yes
+          src: /etc/kubernetes/admin.conf
+          dest: $HOME/.kube/config
+          owner: vagrant
+          group: vagrant
+- name: Setup pod network
+  become: yes
+  shell:
+        'kubectl apply -f $HOME/calico.yaml'

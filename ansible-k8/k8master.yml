@@ -1,0 +1,8 @@
+---
+# Setup K8 cluster
+- name: Setup K8 cluster
+  hosts: k8-master
+  become: yes
+  roles:
+          - k8master
+
