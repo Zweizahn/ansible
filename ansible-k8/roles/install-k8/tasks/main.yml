@@ -1,0 +1,25 @@
+---
+# Install K8 on master and nodes
+
+- name: Install docker
+  apt:
+        name: docker.io
+        state: present
+
+- name: Start Docker persistently
+  service:
+        name: docker
+        state: started
+        enabled: yes
+              
+- name: Install helper packages
+  apt:
+        name: 
+                - apt-transport-https
+                - curl
+        state: present
+
+- name: add key for K8
+  apt_key:
+          url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+          state: present

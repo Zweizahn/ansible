@@ -1,0 +1,10 @@
+---
+# Install K8
+- name: Install K8
+  hosts: k8all
+  become: yes
+  roles:
+          - install-k8
+
+
+
