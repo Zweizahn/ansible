@@ -8,9 +8,10 @@
 
 - name: additional packages
   apt:
-          pkg:
+          name:
                   - tree
                   - sshpass
+                  - net-tools
 
 - name: Copy /etc/hosts file
   copy:
